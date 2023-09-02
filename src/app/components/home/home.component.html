@@ -1,0 +1,13 @@
+<div>
+    <div class="flex bg-slate-300 p-2">
+        <h1><b>Home </b></h1>
+    </div>
+    <div class="grid justify-center mt-4 ">
+        <h2><b>Datos de usuario autenticado</b></h2>
+        <hr>
+        <h3><b>Id de usuario: </b>{{ user.userNro }}</h3>
+        <h3><b>Nombre: </b>{{user.userFirstName }} {{user.userLastName}} </h3>
+        <h3><b>Nombre de usuario: </b>{{ user.userName }}</h3>
+        <button class="flex" color="warn" mat-raised-button (click)="logout()">Logout</button>
+    </div>
+</div>

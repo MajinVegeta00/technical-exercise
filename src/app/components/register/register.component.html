@@ -1,0 +1,71 @@
+<div class="grid ml-2 mt-2 justify-center">
+  <div>
+    <h1><b>Registrese!</b></h1>
+    <form [formGroup]="form" (submit)="sendData()">
+      <div>
+        <mat-form-field>
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput formControlName="userName" />
+          <mat-error *ngIf="userName.invalid">{{
+            getErrorMessage("userName")
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <div>
+          <mat-form-field>
+            <mat-label>Primer Nombre</mat-label>
+            <input matInput formControlName="userFirstName" />
+            <mat-error *ngIf="userFirstName.invalid">{{
+              getErrorMessage("userFirstName")
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <div>
+          <mat-form-field>
+            <mat-label>Segundo Nombre</mat-label>
+            <input matInput formControlName="userLastName" />
+            <mat-error *ngIf="userLastName.invalid">{{
+                getErrorMessage("userLastName")
+              }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Correo Electronico</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            formControlName="userEmail"
+            required
+          />
+          <mat-error *ngIf="userEmail.invalid">{{
+            getErrorMessage("userEmail")
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'"  formControlName="userPassword" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <button mat-raised-button color="primary" [disabled]="form.invalid">Registrarse</button>
+       
+      </div>
+    </form>
+  </div>
+</div>
